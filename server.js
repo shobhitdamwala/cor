@@ -9,8 +9,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+mongoose.set("strictQuery", true);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/sms")
+  .connect("mongodb+srv://shobhitdamwala2_db_user:sh@cluster0.rgjhdbb.mongodb.net/?appName=Cluster0 ")
   .then(() => console.log("✅ MongoDB connected"));
 
 const smsSchema = new mongoose.Schema({
