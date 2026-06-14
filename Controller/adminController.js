@@ -13,6 +13,14 @@ export const adminLogin = async (req, res) => {
     }else{
         return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
-  return res.status(401).json({ success: false, message: 'Invalid credentials' });
+};
+
+export const getAllAdmins = async (req, res) => {
+  try {
+    const admins = await Admin.find({}, { password: 0 });
+    res.json({ success: true, data: admins });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
 };
 
